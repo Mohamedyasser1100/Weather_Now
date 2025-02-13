@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_now/core/helper/validator.dart';
 import 'package:weather_now/core/utils/app_colors.dart';
 import 'package:weather_now/core/utils/app_route.dart';
 import 'package:weather_now/core/widgets/custome_button.dart';
@@ -34,7 +35,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         CustomeTextField(
           hintText: 'Email',
           controller: emailController,
-          perfixIcon: Icon(Icons.email_outlined),
+          validator: (value) {
+            return validatorForEmail(value, maxVal: 30, minVal: 5);
+          },
         ),
         SizedBox(
           height: 20,
@@ -43,6 +46,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           hintText: 'Password',
           controller: passwordController,
           isPassword: true,
+          validator: (value) {
+            return validatorForEmail(value, maxVal: 30, minVal: 5);
+          },
         ),
         SizedBox(
           height: 10,

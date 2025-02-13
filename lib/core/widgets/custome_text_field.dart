@@ -9,13 +9,15 @@ class CustomeTextField extends StatefulWidget {
       required this.controller,
       this.perfixIcon,
       this.suffixIcon,
-      this.isPassword = false});
+      this.isPassword = false,
+      this.validator});
 
   final Widget? suffixIcon;
   final Widget? perfixIcon;
   final String hintText;
   final bool isPassword;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomeTextField> createState() => _CustomeTextFieldState();
@@ -34,6 +36,7 @@ class _CustomeTextFieldState extends State<CustomeTextField> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        validator: widget.validator,
         controller: widget.controller,
         obscureText: widget.isPassword ? obscureText : false,
         cursorColor: AppColors.darkestBlue,

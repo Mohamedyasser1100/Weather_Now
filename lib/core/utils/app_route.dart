@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_now/features/auth/forget_password/presentation/views/forget_password_view.dart';
 import 'package:weather_now/features/auth/login/presentation/views/login_view.dart';
+import 'package:weather_now/features/home/presentation/views/home_view.dart';
 import 'package:weather_now/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:weather_now/features/auth/signup/presentation/views/sign_up_view.dart';
 
@@ -9,6 +10,7 @@ abstract class AppRoute {
   static const String signUp = "/signup";
   static const String logIn = "/login";
   static const String forgetPass = "/forgetPass";
+  static const String homeView = "/homeView";
 
   static Route<dynamic> generateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -20,6 +22,8 @@ abstract class AppRoute {
         return MaterialPageRoute(builder: (context) => SignUpView());
       case forgetPass:
         return MaterialPageRoute(builder: (context) => ForgetPasswordView());
+      case homeView:
+        return MaterialPageRoute(builder: (context) => HomeView());
 
       default:
         return MaterialPageRoute(builder: (context) {
