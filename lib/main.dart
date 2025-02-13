@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_now/core/utils/app_route.dart';
 import 'package:weather_now/firebase_options.dart';
 
 void main() async {
@@ -13,8 +14,12 @@ class WeatherNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(),
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: AppRoute.onBoarding,
+        onGenerateRoute: AppRoute.generateRoute,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ));
   }
 }
