@@ -15,7 +15,7 @@ class SignupProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signup(
+  Future<void> signupAuth(
       BuildContext context, String email, String password) async {
     _setLoading(true);
     try {

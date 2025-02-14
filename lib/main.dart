@@ -1,25 +1,31 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_now/core/utils/app_route.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_now/core/helper/initial_repo.dart';
+import 'package:weather_now/features/auth/login/presentation/manager/login_provider.dart';
+import 'package:weather_now/features/auth/signup/presentation/manager/signup_provider.dart';
 import 'package:weather_now/firebase_options.dart';
+import 'package:weather_now/my_app.dart';
 
 void main() async {
-  runApp(const WeatherNow());
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-}
-
-class WeatherNow extends StatelessWidget {
-  const WeatherNow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: AppRoute.onBoarding,
-        onGenerateRoute: AppRoute.generateRoute,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ));
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final repositories = RepositoriesInitializer(firebaseAuth);
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => LoginProvider(repositories.loginUseCase),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SignupProvider(repositories.signupUseCase),
+        ),
+      ],
+      child: const WeatherNow(),
+    ),
+  );
 }

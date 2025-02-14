@@ -15,11 +15,11 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> login(
+  Future<void> loginAuth(
       BuildContext context, String email, String password) async {
     _setLoading(true);
     try {
-      await loginUseCase(email, password);
+      await loginUseCase(email, password, context);
       Navigator.pushNamed(context, AppRoute.homeView);
     } catch (e) {
       print(e);

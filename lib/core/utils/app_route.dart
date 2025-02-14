@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_now/features/auth/forget_password/presentation/views/forget_password_view.dart';
 import 'package:weather_now/features/auth/login/presentation/views/login_view.dart';
 import 'package:weather_now/features/home/presentation/views/home_view.dart';
 import 'package:weather_now/features/onboarding/presentation/views/onboarding_view.dart';
@@ -20,8 +19,7 @@ abstract class AppRoute {
         return MaterialPageRoute(builder: (context) => LoginView());
       case signUp:
         return MaterialPageRoute(builder: (context) => SignUpView());
-      case forgetPass:
-        return MaterialPageRoute(builder: (context) => ForgetPasswordView());
+
       case homeView:
         return MaterialPageRoute(builder: (context) => HomeView());
 
