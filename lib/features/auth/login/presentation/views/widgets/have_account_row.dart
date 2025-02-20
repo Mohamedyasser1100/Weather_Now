@@ -17,7 +17,7 @@ class HaveAccountRow extends StatelessWidget {
       children: [
         Text(
           text1,
-          style: AppStyle.regular18(context).copyWith(color: Colors.black),
+          style: AppStyle.regular18(context),
         ),
         SizedBox(
           width: 5,
@@ -26,8 +26,8 @@ class HaveAccountRow extends StatelessWidget {
           onTap: onTap,
           child: Text(
             text2,
-            style: AppStyle.regular18(context)
-                .copyWith(color: AppColors.primaryColor),
+            style:
+                AppStyle.regular18(context).copyWith(color: AppColors.kButton),
           ),
         ),
       ],

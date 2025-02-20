@@ -36,10 +36,11 @@ class _CustomeTextFieldState extends State<CustomeTextField> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        style: TextStyle(color: Colors.white),
         validator: widget.validator,
         controller: widget.controller,
         obscureText: widget.isPassword ? obscureText : false,
-        cursorColor: AppColors.darkestBlue,
+        cursorColor: AppColors.kButton,
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
@@ -52,10 +53,10 @@ class _CustomeTextFieldState extends State<CustomeTextField> {
                 )
               : null,
           prefixIcon: widget.perfixIcon,
-          prefixIconColor: AppColors.darkestBlue,
-          suffixIconColor: AppColors.darkestBlue,
+          prefixIconColor: AppColors.kButton,
+          suffixIconColor: Colors.white,
           hintText: widget.hintText,
-          hintStyle: AppStyle.medium18(context),
+          hintStyle: AppStyle.medium18(context).copyWith(color: Colors.white),
           border: buildBorder(),
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(),
@@ -67,6 +68,6 @@ class _CustomeTextFieldState extends State<CustomeTextField> {
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(width: 1, color: Colors.grey));
+        borderSide: const BorderSide(width: 1, color: Colors.white));
   }
 }

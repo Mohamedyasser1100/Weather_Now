@@ -9,17 +9,16 @@ class LoginHeader extends StatelessWidget {
   final String text2;
   @override
   Widget build(BuildContext context) {
-    return Column(      
+    return Column(
       children: [
         Text(
           text1,
-          style: AppStyle.semiBold35(context)
-              .copyWith(color: AppColors.primaryColor),
+          style:
+              AppStyle.semiBold35(context).copyWith(color: AppColors.kButton),
         ),
         Text(
           text2,
-          style:
-              AppStyle.regular18(context).copyWith(color: AppColors.darkerBlue),
+          style: AppStyle.regular18(context),
         )
       ],
     );

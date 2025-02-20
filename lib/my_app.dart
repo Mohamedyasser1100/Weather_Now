@@ -13,6 +13,7 @@ class WeatherNow extends StatelessWidget {
           ? AppRoute.onBoarding
           : AppRoute.homeView,
       onGenerateRoute: AppRoute.generateRoute,
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.kPrimaryColor),
     );
   }
 }

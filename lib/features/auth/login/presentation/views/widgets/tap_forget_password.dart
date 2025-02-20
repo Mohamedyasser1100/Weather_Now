@@ -15,7 +15,7 @@ class TapForgetPassword extends StatelessWidget {
         child: Text(
           'Forget Password?',
           style: AppStyle.medium18(context).copyWith(
-            color: AppColors.primaryColor,
+            color: AppColors.kButton,
           ),
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_now/core/helper/initial_repo.dart';
 import 'package:weather_now/features/auth/login/presentation/manager/login_provider.dart';
 import 'package:weather_now/features/auth/signup/presentation/manager/signup_provider.dart';
+import 'package:weather_now/features/home/presentation/manager/home_provider.dart';
 import 'package:weather_now/firebase_options.dart';
 import 'package:weather_now/my_app.dart';
 
@@ -23,6 +24,10 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => SignupProvider(repositories.signupUseCase),
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>
+              HomeProvider(getWeatherUseCase: repositories.getWeatherUseCase),
         ),
       ],
       child: const WeatherNow(),

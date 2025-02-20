@@ -12,29 +12,39 @@ class OnboardingViewBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-          height: 30,
+          height: 320,
+          child: Container(
+            child: Image.asset('assets/images/Logo1.png'),
+          ),
         ),
-        Center(
-            child: CircleAvatar(
-                radius: 50, child: Image.asset('assets/images/logo.png'))),
         Text(
           'Weather Now',
           style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: AppColors.darkerBlue),
+              fontSize: 48, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         SizedBox(
           height: 80,
         ),
+        Center(
+          child: CustomeButton(
+            text: 'Login',
+            textColor: Colors.white,
+            onTap: () {
+              Navigator.pushNamed(context, AppRoute.logIn);
+            },
+            color: AppColors.kButton,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
         CustomeButton(
-          text: 'Login',
-          textColor: Colors.white,
-          onTap: () {
-            Navigator.pushNamed(context, AppRoute.logIn);
-          },
-          color: AppColors.darkerBlue,
-        )
+            text: 'Register',
+            color: AppColors.kPrimaryColor,
+            onTap: () {
+              Navigator.pushNamed(context, AppRoute.signUp);
+            },
+            textColor: Colors.white)
       ],
     );
   }

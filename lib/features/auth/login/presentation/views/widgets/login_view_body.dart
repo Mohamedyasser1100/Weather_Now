@@ -26,74 +26,76 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     final loginAuthProvider = Provider.of<LoginProvider>(context);
     return Form(
       key: formState,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 100,
-          ),
-          LoginHeader(
-            text1: 'Welcome Back',
-            text2: 'Login to your account',
-          ),
-          SizedBox(
-            height: 60,
-          ),
-          CustomeTextField(
-            hintText: 'Email',
-            controller: emailController,
-            validator: (value) {
-              return validatorForEmail(value, maxVal: 30, minVal: 5);
-            },
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          CustomeTextField(
-            hintText: 'Password',
-            controller: passwordController,
-            isPassword: true,
-            validator: (value) {
-              return validatorForPassword(value, maxVal: 10, minVal: 5);
-            },
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TapForgetPassword(
-                onTap: () {
-                  Navigator.pushNamed(context, AppRoute.forgetPass);
-                },
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          CustomeButton(
-            text: 'Login',
-            color: AppColors.primaryColor,
-            onTap: () {
-              if (formState.currentState!.validate()) {
-                loginAuthProvider.loginAuth(
-                    context, emailController.text, passwordController.text);
-              }
-            },
-            textColor: Colors.white,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          HaveAccountRow(
-            text1: 'Don\'t have an account?',
-            text2: 'Register',
-            onTap: () {
-              Navigator.pushNamed(context, AppRoute.signUp);
-            },
-          )
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            LoginHeader(
+              text1: 'Welcome Back',
+              text2: 'Login to your account',
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            CustomeTextField(
+              hintText: 'Email',
+              controller: emailController,
+              validator: (value) {
+                return validatorForEmail(value, maxVal: 30, minVal: 5);
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomeTextField(
+              hintText: 'Password',
+              controller: passwordController,
+              isPassword: true,
+              validator: (value) {
+                return validatorForPassword(value, maxVal: 10, minVal: 5);
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TapForgetPassword(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoute.forgetPass);
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            CustomeButton(
+              text: 'Login',
+              color: AppColors.kButton,
+              onTap: () {
+                if (formState.currentState!.validate()) {
+                  loginAuthProvider.loginAuth(
+                      context, emailController.text, passwordController.text);
+                }
+              },
+              textColor: Colors.white,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            HaveAccountRow(
+              text1: 'Don\'t have an account?',
+              text2: 'Register',
+              onTap: () {
+                Navigator.pushNamed(context, AppRoute.signUp);
+              },
+            )
+          ],
+        ),
       ),
     );
   }

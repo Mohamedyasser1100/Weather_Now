@@ -6,19 +6,19 @@ class AppStyle {
     return TextStyle(
         fontSize: getResponsive(context, fontSize: 20),
         fontWeight: FontWeight.w600,
-        color: AppColors.darkestBlue);
+        color: AppColors.kButton);
   }
 
   static TextStyle semiBold35(BuildContext context) {
     return TextStyle(
-        fontSize: getResponsive(context, fontSize: 35),
+        fontSize: getResponsive(context, fontSize: 38),
         fontWeight: FontWeight.w600,
         color: Colors.white);
   }
 
   static TextStyle regular18(BuildContext context) {
     return TextStyle(
-        color: Colors.grey,
+        color: Colors.white,
         fontSize: getResponsive(context, fontSize: 18),
         fontWeight: FontWeight.w400);
   }
