@@ -14,7 +14,7 @@ The project helps users check the weather conditions of a specific location befo
 
 ## Video Demo
 
-Check out the demo video of Auth feature with Firbase: [Video Link](https://drive.google.com/file/d/1FZd-WLH4G44mQrsX21NnF_LsQ9S3na5m/view?usp=drive_link)
+Check out the demo video of Auth feature with Firbase & Home feature with Api: [Video Link](https://drive.google.com/file/d/1QiXU6e-d7sBVQduHCWbwf6puhC9NspRu/view?usp=sharing)
 
 ---
 
