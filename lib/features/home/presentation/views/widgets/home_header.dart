@@ -19,10 +19,6 @@ class HomeHeader extends StatelessWidget {
           SizedBox(
             height: 4,
           ),
-          Text(
-            '24 Feb',
-            style: AppStyle.semiBold20(context),
-          )
         ],
       ),
     );

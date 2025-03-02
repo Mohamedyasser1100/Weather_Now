@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_now/core/services/location_service.dart';
+import 'package:weather_now/features/home/data/source/weather_prediction_remote_data_source.dart';
 import 'package:weather_now/features/home/domain/entities/weather.dart';
 import 'package:weather_now/features/home/domain/usecase/weather_use_case.dart';
-import 'package:intl/intl.dart';
 
 class HomeProvider extends ChangeNotifier {
   final GetWeatherUseCase getWeatherUseCase;
+  final WeatherPredictionRemoteDataSource weatherPredictionRemoteDataSource =
+      WeatherPredictionRemoteDataSource();
   Weather? weather;
   List<Forecast> forecast = [];
   bool isLoading = false;
@@ -64,5 +67,28 @@ class HomeProvider extends ChangeNotifier {
     );
 
     notifyListeners();
+  }
+
+  Future<String> getWeatherPrediction() async {
+    if (forecast.isEmpty) {
+      return "No forecast data available.";
+    }
+
+    try {
+      final selectedForecast = forecast[selectedDayIndex];
+
+      List<double> weatherData = [
+        selectedForecast.temperature - 273.15,
+        selectedForecast.humidity.toDouble(),
+        selectedForecast.windSpeed,
+        double.tryParse(selectedForecast.cloudiness) ?? 0.0,
+        selectedForecast.icon.contains("01") ? 1.0 : 0.0,
+      ];
+
+      return await weatherPredictionRemoteDataSource
+          .getWeatherPredict(weatherData);
+    } catch (e) {
+      return "Failed to get prediction: ${e.toString()}";
+    }
   }
 }

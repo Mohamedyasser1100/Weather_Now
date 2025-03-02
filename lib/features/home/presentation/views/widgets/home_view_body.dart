@@ -4,6 +4,7 @@ import 'package:weather_now/core/utils/app_colors.dart';
 import 'package:weather_now/features/home/presentation/manager/home_provider.dart';
 import 'package:weather_now/features/home/presentation/views/widgets/home_details.dart';
 import 'package:weather_now/features/home/presentation/views/widgets/home_header.dart';
+import 'package:weather_now/features/home/presentation/views/widgets/prdiction_weather_button.dart';
 import 'package:weather_now/features/home/presentation/views/widgets/weather_day_list_view.dart';
 import 'package:weather_now/features/home/presentation/views/widgets/weather_info.dart';
 
@@ -77,6 +78,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     height: 24,
                   ),
                   WeatherDayListView(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  WeatherPredictionButton(),
                 ],
               ),
             ),
